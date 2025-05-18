@@ -55,4 +55,15 @@ export function User({user}){
   )
 }
 
+export function College({name}) {
+
+  return (
+    <div>
+      <hr/>
+      <h1>{name}</h1>
+    </div>
+  )
+
+}
+
 export default Counter

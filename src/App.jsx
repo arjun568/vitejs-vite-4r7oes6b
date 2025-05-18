@@ -1,6 +1,7 @@
 import Login,{Profile,Setting,UserKey} from './UserComponent'
 import Home from './Exercise1'
-import Counter,{Toggle,User} from './Hooks'
+import Counter,{Toggle,User,College} from './Hooks'
+import { useState } from "react";
 
 function App() {
  // alert(sum());
@@ -28,11 +29,19 @@ function Props(){
     age : 27,
     email : "arjuntiwari568@gmail.com"
   }
+
+  let collegeNames=['IET', 'DU', 'IIT', 'NIT', 'MIT'];
+  const[collegeName,setCollegeName]=useState(collegeNames[0]);
   
   return (
     <>
       <h1>Props in React Js</h1>
       <User user={user}/>
+      {
+        collegeName && <College name={collegeName}/>
+      }
+      <button onClick={()=>{setCollegeName(collegeNames[2])}}>Update college name</button>
+      
     </>  
   )
 }
