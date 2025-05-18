@@ -1,6 +1,6 @@
 import Login,{Profile,Setting,UserKey} from './UserComponent'
 import Home from './Exercise1'
-import Counter,{Toggle} from './Hooks'
+import Counter,{Toggle,User} from './Hooks'
 
 function App() {
  // alert(sum());
@@ -14,8 +14,26 @@ function App() {
   <h1>{UserKey}</h1>
   </div>
   <Home/>
-  <Counter/>*/
-  <Toggle/>
+  <Counter/>
+  <Toggle/>*/
+  <>
+  <Props/>
+  </>
+  )
+}
+
+function Props(){
+  let user ={
+    name : "Arjun",
+    age : 27,
+    email : "arjuntiwari568@gmail.com"
+  }
+  
+  return (
+    <>
+      <h1>Props in React Js</h1>
+      <User user={user}/>
+    </>  
   )
 }
 
