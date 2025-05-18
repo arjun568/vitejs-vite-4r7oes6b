@@ -10,9 +10,9 @@ const Clock = ({color}) => {
     }, []);
     return (
         <div>
-            <h1
-            style={{color:color,backgroundColor:'#000', width:"120px",padding:"10px",borderRadius:"5px"}}
-            >{time}</h1>
+            <h2
+            style={{color:color,backgroundColor:'#000', width:"180px",padding:"10px",borderRadius:"5px"}}
+            >{time}</h2>
         </div>
     )
 }

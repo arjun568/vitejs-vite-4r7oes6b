@@ -3,7 +3,7 @@ import Home from './Exercise1'
 import Counter,{Toggle,User,College} from './Hooks'
 import { useState } from "react";
 import Skills from './Skills';
-import Clock from './Clock'
+import Clock from './Clock';
 
 function App() {
  // alert(sum());
@@ -18,7 +18,8 @@ function App() {
   </div>
   <Home/>
   <Counter/>
-  <Toggle/>*/
+  <Toggle/>
+  <PropsTaskClock/>*/
   <>
   <Skills/>
   <PropsTaskClock/>
@@ -28,13 +29,14 @@ function App() {
 
 function PropsTaskClock() {
 
-  const[color,setColor] = useState("green");
+  const[color,setColor] = useState("white");
 
   return (
 
     <div>
       <h1>Digital Clock in React</h1>
       <select onChange={(event)=>{setColor(event.target.value)}}>
+        <option value={"white"}>White</option>
         <option value={"red"}>Red</option>
         <option value={"blue"}>Blue</option>
         <option value={"green"}>Green</option>
