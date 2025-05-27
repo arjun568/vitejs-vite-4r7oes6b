@@ -23,12 +23,148 @@ function App() {
   <Skills/>
   <PropsTaskClock/>*/
   <>
-  <radioDropdown/>
+  <RadioDropdown/>
+  <ArrayData/>
+  <ReuseCmp/>
+  <NestedArray/>
   </>
   )
 }
 
-function radioDropdown() {
+function NestedArray() {
+
+  const collegeData=[
+    {
+      name: "IET Alwar",
+      city: "Alwar",
+      website: "www.iet.com",
+      student: [
+        {
+          name: "Anil Sidhu",
+          age: '29',
+          email: "anil@test.com"
+        },
+        {
+          name: "Peter",
+          age: '20',
+          email: "peter@test.com"
+        },
+        {
+          name: "Bruce",
+          age: '25',
+          email: "bruce@test.com"
+        }
+      ]
+    }
+  ]
+
+  return (
+    <div>
+      <h1>Nested Looping with Component</h1>
+      {
+        collegeData.map((college,index)=>{
+          <div key={index}>
+            <h1>Name: {college.name}</h1>
+            <ul>
+              <li>
+                <h3>City: {college.city}</h3>
+              </li>
+              <li>
+                <h3>Website: {college.website}</h3>
+              </li>
+              <li>
+                <h3>Students</h3>
+                {
+                  college.student.map((student)=>{
+                    <ul>
+                      <li>Name: {student.name}</li>
+                    </ul>
+                  })
+                }
+              </li>
+            </ul>
+          </div>
+        })
+      }
+    </div>
+  )
+}
+
+function ReuseCmp() {
+
+  return (
+    <div>
+      <h1>Reuse Component in Loop</h1>
+      {
+        userData.map((user)=>{
+          <div key={user.id}>
+            <User user={user} />
+          </div>
+        })
+      }
+    </div>
+  )
+}
+
+function ArrayData() {
+
+  const userData = [
+    {
+      name: "Anil",
+      age: "29",
+      email: "anil@test.com",
+      id: 1
+    },
+    {
+      name: "Sam",
+      age: "34",
+      email: "sam@test.com",
+      id: 1
+    },
+    {
+      name: "Peter",
+      age: "20",
+      email: "peter@test.com",
+      id: 1
+    },
+    {
+      name: "Bruce",
+      age: "50",
+      email: "bruce@test.com",
+      id: 1
+    }
+  ]
+
+  return (
+    <div>
+      <h1>Loop in JSX with Map Function</h1>
+      <table border="1">
+        <thead>
+          <tr>
+            <td>Id</td>
+            <td>Name</td>
+            <td>Email</td>
+            <td>Age</td>
+          </tr>
+        </thead>
+        <tbody>
+          {
+            userData.map((user)=>{
+          <tr key={user.id}>
+            <td>{user.id}</td>
+            <td>{user.name}</td>
+            <td>{user.email}</td>
+            <td>{user.age}</td>
+          </tr>
+            })
+          }
+        </tbody>
+      </table>
+    </div>
+  )
+}
+
+function RadioDropdown() {
 
   const [gender,setGender]=useState('female');
   const [city,setCity]=useState('delhi');
@@ -39,7 +175,7 @@ function radioDropdown() {
       <input type="radio" onChange={(event)=>setGender(event.target.value)} name="gender" 
        value={"male"} checked={gender == 'male'} id="male" />
       <label htmlFor="male">Male</label>
-      <input type="radio" onChnage={(event)=>setGender(event.target.value)} name="gender" 
+      <input type="radio" onChange={(event)=>setGender(event.target.value)} name="gender" 
        value={"female"} checked={gender == 'female'} id="female" />
       <label htmlFor="female">Female</label>
       <h2>Selected Gender :{gender}</h2>
